@@ -1,0 +1,243 @@
+HTML:
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>kalkulators</title>
+
+    <link rel="stylesheet" href="style.css"
+
+</head>
+
+<body>
+
+    <h1>Web kalkulators</h1>
+
+    <div class="container">
+
+        <input type="number" id="num1"placenholder="Ievadiet pirmo skaitli">
+
+        <input type="number" id="num2"placenholder="Ievadiet otro skaitli">
+
+    </div>
+
+ 
+
+    <div class="container">
+
+        <button class="btn" onclick="saskaitit()">Saskaitīt</button>
+
+        <button class="btn" onclick="atņemt()">Atņemt</button>
+
+        <button class="btn" onclick="reizinat()">Reizināt</button>
+
+        <button class="btn" onclick="dalit()">Dalīt</button>
+
+    </div>
+
+ 
+
+    <div id="result">Rezultāts</div>
+
+ 
+
+    <script src="script.js"></script>
+
+ 
+
+</body>
+
+</html>
+
+
+
+CSS:
+
+
+
+body {
+
+        font-family: "Times New Roman", Times, serif;
+
+        text-align: center;
+
+        background-color: blueviolet;
+
+      }
+
+ 
+
+h1 {
+
+    font-size: 2.5em;
+
+    margin-top: 20px;
+
+}
+
+ 
+
+.container{
+
+    margin-top: 30px;
+
+}  
+
+ 
+
+input[type="number"]{
+
+    width: 200px;
+
+    padding: 10px;
+
+    margin: 10px;
+
+    font-size: 1.5em;
+
+    border: 1px pink #f4f4f4;
+
+    border-radius: 5px;
+
+}
+
+ 
+
+.btn{
+
+    background-color: #04AA6D; /* Green */
+
+  border: none;
+
+  color: white;
+
+  padding: 15px 32px;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  display: inline-block;
+
+  font-size: 16px;
+
+}
+
+ 
+
+ 
+
+#result{
+
+    font-size: 2em;
+
+    margin-top: 20px;
+
+    padding: 10px;
+
+    background-color: orangered;
+
+    display: inline-block;
+
+    min-width: 200px;
+
+    border-radius: 5px;
+
+}
+
+
+
+JS:
+
+
+
+function getInputValues(){
+
+    const num1=parseFloat(document.getElementById('num1').value);
+
+    const num2=parseFloat(document.getElementById('num2').value);
+
+    return { num1, num2};
+
+}
+
+ 
+
+function saskaitit(){
+
+    const { num1, num2}=getInputValues();
+
+    if(!isNaN(num1)&&!isNaN(num2)) {
+
+        document.getElementById('result').textContent = num1 + num2;
+
+    }else{
+
+        alert('Lūdzu ievadiet derīgus skaitļus.');
+
+    }
+
+}
+
+ 
+
+function atņemt(){
+
+    const { num1, num2}=getInputValues();
+
+    if(!isNaN(num1)&&!isNaN(num2)) {
+
+        document.getElementById('result').textContent = num1 - num2;
+
+    }else{
+
+        alert('Lūdzu ievadiet derīgus skaitļus.');
+
+    }
+
+}
+
+ 
+
+function reizinat(){
+
+    const { num1, num2}=getInputValues();
+
+    if(!isNaN(num1)&&!isNaN(num2)) {
+
+        document.getElementById('result').textContent = num1 * num2;
+
+    }else{
+
+        alert('Lūdzu ievadiet derīgus skaitļus.');
+
+    }
+
+}
+
+ 
+
+function dalit(){
+
+    const { num1, num2}=getInputValues();
+
+    if(!isNaN(num1)&&!isNaN(num2)) {
+
+        document.getElementById('result').textContent = num1 / num2;
+
+    }else{
+
+        alert('Lūdzu ievadiet derīgus skaitļus.');
+
+    }
+
+}
